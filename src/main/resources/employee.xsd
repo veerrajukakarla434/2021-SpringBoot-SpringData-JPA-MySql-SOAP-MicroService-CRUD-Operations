@@ -1,0 +1,84 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://interfaces.soap.springboot.vkakarla.com"
+	targetNamespace="http://interfaces.soap.springboot.vkakarla.com"
+	elementFormDefault="qualified">
+
+
+	<xs:complexType name="employeeInfo">
+		<xs:sequence>
+			<xs:element name="employeeId" type="xs:long" />
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="department" type="xs:string" />
+			<xs:element name="phone" type="xs:string" />
+			<xs:element name="address" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="serviceStatus">
+		<xs:sequence>
+			<xs:element name="status" type="xs:string" />
+			<xs:element name="message" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="addEmployeeRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employeeInfo" type="tns:employeeInfo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="addEmployeeResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceStatus" type="tns:serviceStatus" />
+				<xs:element name="employeeInfo" type="tns:employeeInfo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="getEmployeeByIdRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employeeId" type="xs:long" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getEmployeeResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employeeInfo" type="tns:employeeInfo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="updateEmployeeRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employeeInfo" type="tns:employeeInfo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="updateEmployeeResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceStatus" type="tns:serviceStatus" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteEmployeeRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employeeId" type="xs:long" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteEmployeeResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceStatus" type="tns:serviceStatus" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema> 
